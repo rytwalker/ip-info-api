@@ -10,4 +10,6 @@ This is a simple serverless API that takes an IP address as a parameter and retu
 - IPSTACK.com
 
 ## Routes
-GET /:ip 
+| Method | Endpoint      | Description                                                                                                                                                                                                                                                                                 |
+| ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | /:ip   | Takes an IP address as a parameter and returns geolocation data about address via ipstack. If not valid, returns an error 400.            |
