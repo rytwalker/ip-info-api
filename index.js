@@ -8,9 +8,17 @@ const app = express();
 app.use(cors());
 
 app.get('/', async (req, res) => {
-  const ip = '24.112.204.161';
-  //
-  console.log(process.env.ACCESS_KEY);
+  res.status(200).json({
+    message:
+      'Add an ipv4 address to the end of the url to get geolocation info about it.',
+    example: '/8.8.8.8'
+  });
+});
+
+app.get('/:ip', async (req, res) => {
+  const ip = req.params.ip || '24.112.204.161';
+  //   const ip = req.body;
+  console.log(req.params.ip);
   fetch(`http://api.ipstack.com/${ip}?access_key=${process.env.ACCESS_KEY}`)
     .then(res => res.json())
     .then(json => {
@@ -21,6 +29,7 @@ app.get('/', async (req, res) => {
     });
 });
 
-app.listen(4000, () => console.log('app running on port 4000'));
+// For local testing
+// app.listen(4000, () => console.log('app running on port 4000'));
 
 module.exports.handler = serverless(app);
