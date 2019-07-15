@@ -12,6 +12,7 @@
     "aws-serverless-express": "^3.3.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "iplocation": "^6.1.0",
     "serverless-http": "^2.0.2"
   }
 }
